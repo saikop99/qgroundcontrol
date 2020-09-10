@@ -50,7 +50,7 @@ public:
     Q_PROPERTY(Vehicle*             offlineEditingVehicle           READ offlineEditingVehicle                                          CONSTANT)
     /// The current vehicle's last known location
     Q_PROPERTY(QGeoCoordinate       lastKnownLocation               READ lastKnownLocation                                              NOTIFY lastKnownLocationChanged)
-
+    Q_PROPERTY(bool activeVehicleNpntAuthorized READ getNpntAuthorizationStatus NOTIFY npntAuthorizationStatusChanged)
     // Methods
 
     Q_INVOKABLE Vehicle* getVehicleById(int vehicleId);
@@ -62,6 +62,8 @@ public:
     bool activeVehicleAvailable(void) { return _activeVehicleAvailable; }
 
     bool parameterReadyVehicleAvailable(void) { return _parameterReadyVehicleAvailable; }
+
+    bool activeVehicleNpntAuthorized(void) { return _activeVehicleNpntAuthorized; }
 
     Vehicle* activeVehicle(void) { return _activeVehicle; }
     void setActiveVehicle(Vehicle* vehicle);
@@ -113,6 +115,7 @@ private:
     bool        _parameterReadyVehicleAvailable;    ///< true: An active vehicle with ready parameters is available
     Vehicle*    _activeVehicle;                     ///< Currently active vehicle from a ui perspective
     Vehicle*    _offlineEditingVehicle;             ///< Disconnected vechicle used for offline editing
+    bool        _activeVehicleNpntAuthorized;
 
     QList<Vehicle*> _vehiclesBeingDeleted;          ///< List of Vehicles being deleted in queued phases
     Vehicle*        _vehicleBeingSetActive;         ///< Vehicle being set active in queued phases

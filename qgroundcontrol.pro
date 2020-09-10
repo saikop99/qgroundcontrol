@@ -55,10 +55,10 @@ WindowsBuild {
 # Branding
 #
 
-QGC_APP_NAME        = "QGroundControl"
-QGC_ORG_NAME        = "QGroundControl.org"
-QGC_ORG_DOMAIN      = "org.qgroundcontrol"
-QGC_APP_DESCRIPTION = "Open source ground control app provided by QGroundControl dev team"
+QGC_APP_NAME        = "RoundTrip GroundControl"
+QGC_ORG_NAME        = "RoundTrip.org"
+QGC_ORG_DOMAIN      = "org.roundtrip"
+QGC_APP_DESCRIPTION = "Open source ground control app provided by QGroundControl dev team and modified as per license by RoundTrip Dev Team"
 QGC_APP_COPYRIGHT   = "Copyright (C) 2019 QGroundControl Development Team. All rights reserved."
 
 WindowsBuild {
@@ -352,9 +352,9 @@ CustomBuild {
         RESOURCES += $$PWD/resources/InstrumentValueIcons/InstrumentValueIcons.qrc
     }
 } else {
-    DEFINES += QGC_APPLICATION_NAME=\"\\\"QGroundControl\\\"\"
-    DEFINES += QGC_ORG_NAME=\"\\\"QGroundControl.org\\\"\"
-    DEFINES += QGC_ORG_DOMAIN=\"\\\"org.qgroundcontrol\\\"\"
+    DEFINES += QGC_APPLICATION_NAME=\"\\\"RoundTripGroundControlStation\\\"\"
+    DEFINES += QGC_ORG_NAME=\"\\\"RoundTripGCS.org\\\"\"
+    DEFINES += QGC_ORG_DOMAIN=\"\\\"org.roundtrip\\\"\"
     RESOURCES += \
         $$PWD/qgroundcontrol.qrc \
         $$PWD/qgcresources.qrc \
@@ -426,6 +426,7 @@ contains (DEFINES, QGC_ENABLE_PAIRING) {
 
 HEADERS += \
     src/QmlControls/QmlUnitsConversion.h \
+    src/Vehicle/NpntAuthorization.h \
     src/api/QGCCorePlugin.h \
     src/api/QGCOptions.h \
     src/api/QGCSettings.h \
@@ -439,6 +440,7 @@ contains (DEFINES, QGC_ENABLE_PAIRING) {
 }
 
 SOURCES += \
+    src/Vehicle/NpntAuthorization.cc \
     src/api/QGCCorePlugin.cc \
     src/api/QGCOptions.cc \
     src/api/QGCSettings.cc \
@@ -689,6 +691,7 @@ HEADERS += \
     src/Vehicle/InitialConnectStateMachine.h \
     src/Vehicle/MAVLinkLogManager.h \
     src/Vehicle/MultiVehicleManager.h \
+    src/Vehicle/NpntAuthorization.h \
     src/Vehicle/StateMachine.h \
     src/Vehicle/SysStatusSensorInfo.h \
     src/Vehicle/TerrainFactGroup.h \
@@ -917,6 +920,7 @@ SOURCES += \
     src/Vehicle/InitialConnectStateMachine.cc \
     src/Vehicle/MAVLinkLogManager.cc \
     src/Vehicle/MultiVehicleManager.cc \
+    src/Vehicle/NpntAuthorization.cc \
     src/Vehicle/StateMachine.cc \
     src/Vehicle/SysStatusSensorInfo.cc \
     src/Vehicle/TerrainFactGroup.cc \

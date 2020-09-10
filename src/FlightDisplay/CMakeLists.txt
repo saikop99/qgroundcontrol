@@ -22,6 +22,7 @@ add_custom_target(FligthDisplayQml
 		GuidedActionConfirm.qml
 		GuidedActionLand.qml
 		GuidedActionList.qml
+		GuidedActionNpntArtefactUpload.qml
 		GuidedActionPause.qml
 		GuidedActionRTL.qml
 		GuidedActionsController.qml
@@ -34,6 +35,7 @@ add_custom_target(FligthDisplayQml
 		PreFlightCheckList.qml
 		PreFlightCheckListShowAction.qml
 		PreFlightGPSCheck.qml
+		PreFlightNpntCheck.qml
 		PreFlightRCCheck.qml
 		PreFlightSensorsHealthCheck.qml
 		PreFlightSoundCheck.qml

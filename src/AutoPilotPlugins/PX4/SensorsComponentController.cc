@@ -182,7 +182,6 @@ void SensorsComponentController::_stopCalibration(SensorsComponentController::St
             qgcApp()->showAppMessage(tr("Calibration failed. Calibration log will be displayed."));
             break;
     }
-    
     _magCalInProgress = false;
     _accelCalInProgress = false;
     _gyroCalInProgress = false;

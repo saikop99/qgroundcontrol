@@ -17,6 +17,7 @@ GuidedActionConfirm             1.0 GuidedActionConfirm.qml
 GuidedActionsController         1.0 GuidedActionsController.qml
 GuidedActionLand                1.0 GuidedActionLand.qml
 GuidedActionList                1.0 GuidedActionList.qml
+GuidedActionNpntArtefactUpload	1.0 GuidedActionNpntArtefactUpload.qml
 GuidedActionPause               1.0 GuidedActionPause.qml
 GuidedActionRTL                 1.0 GuidedActionRTL.qml
 GuidedAltitudeSlider            1.0 GuidedAltitudeSlider.qml
@@ -25,6 +26,7 @@ GuidedToolStripAction           1.0 GuidedToolStripAction.qml
 MultiVehicleList                1.0 MultiVehicleList.qml
 PreFlightBatteryCheck           1.0 PreFlightBatteryCheck.qml
 PreFlightGPSCheck               1.0 PreFlightGPSCheck.qml
+PreFlightNpntCheck				1.0 PreFlightNpntCheck.qml
 PreFlightRCCheck                1.0 PreFlightRCCheck.qml
 PreFlightSensorsHealthCheck     1.0 PreFlightSensorsHealthCheck.qml
 PreFlightSoundCheck             1.0 PreFlightSoundCheck.qml

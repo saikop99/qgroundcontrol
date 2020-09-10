@@ -56,6 +56,7 @@ class ComponentInformationManager;
 class FTPManager;
 class InitialConnectStateMachine;
 class VehicleBatteryFactGroup;
+class NpntAuthorization;
 
 #if defined(QGC_AIRMAP_ENABLED)
 class AirspaceVehicleManager;
@@ -1064,6 +1065,7 @@ private:
     MissionManager*     _missionManager;
     GeoFenceManager*    _geoFenceManager;
     RallyPointManager*  _rallyPointManager;
+    NpntAuthorization*  _npntAuthorizationInstance;
 
     ParameterManager*               _parameterManager               = nullptr;
     FTPManager*                     _ftpManager                     = nullptr;

@@ -34,6 +34,8 @@ add_library(Vehicle
 	MAVLinkLogManager.h
 	MultiVehicleManager.cc
 	MultiVehicleManager.h
+	NpntAuthorization.cc
+	NpntAuthorization.h
 	StateMachine.cc
 	StateMachine.h
 	SysStatusSensorInfo.cc

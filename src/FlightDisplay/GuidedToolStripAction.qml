@@ -16,6 +16,10 @@ ToolStripAction {
     property var _guidedController: globals.guidedControllerFlyView
 
     onTriggered: {
+        if(actionID === 25){
+            signal onNpntArtefactUploadClicked;
+        }
+
         _guidedController.closeAll()
         _guidedController.confirmAction(actionID)
     }

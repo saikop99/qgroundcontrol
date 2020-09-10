@@ -108,6 +108,9 @@
 #include "ToolStripActionList.h"
 #include "QGCMAVLink.h"
 
+//NPNT Authorization Header
+#include "NpntAuthorization.h"
+
 #if defined(QGC_ENABLE_PAIRING)
 #include "PairingManager.h"
 #endif
@@ -654,6 +657,7 @@ bool QGCApplication::_initForNormalAppBoot()
     }
 
     settings.sync();
+
     return true;
 }
 

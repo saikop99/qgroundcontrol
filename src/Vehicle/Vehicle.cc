@@ -49,6 +49,7 @@
 #include "ComponentInformationManager.h"
 #include "InitialConnectStateMachine.h"
 #include "VehicleBatteryFactGroup.h"
+#include "NpntAuthorization.h"
 
 #if defined(QGC_AIRMAP_ENABLED)
 #include "AirspaceVehicleManager.h"
@@ -644,6 +645,7 @@ void Vehicle::resetCounters()
 void Vehicle::_mavlinkMessageReceived(LinkInterface* link, mavlink_message_t message)
 {
     // If the link is already running at Mavlink V2 set our max proto version to it.
+
     unsigned mavlinkVersion = _mavlink->getCurrentVersion();
     if (_maxProtoVersion != mavlinkVersion && mavlinkVersion >= 200) {
         _maxProtoVersion = mavlinkVersion;
@@ -2136,19 +2138,30 @@ QGeoCoordinate Vehicle::homePosition()
 void Vehicle::setArmed(bool armed)
 {
     // We specifically use COMMAND_LONG:MAV_CMD_COMPONENT_ARM_DISARM since it is supported by more flight stacks.
+    NpntAuthorization* NPNTAuthInstance = _npntAuthorizationInstance;
+    if(NPNTAuthInstance->getNpntAuthorizationStatus()){
     sendMavCommand(_defaultComponentId,
                    MAV_CMD_COMPONENT_ARM_DISARM,
                    true,    // show error if fails
                    armed ? 1.0f : 0.0f);
+    }else{
+        qgcApp()->showCriticalVehicleMessage(tr("NPNT Authorization not available, RPAS cannot be armed!"));
+    }
+
 }
 
 void Vehicle::forceArm(void)
 {
+    NpntAuthorization* NPNTAuthInstance = _npntAuthorizationInstance;
+    if(NPNTAuthInstance->getNpntAuthorizationStatus()){
     sendMavCommand(_defaultComponentId,
                    MAV_CMD_COMPONENT_ARM_DISARM,
                    true,    // show error if fails
                    1.0f,    // arm
                    2989);   // force arm
+    }else{
+        qgcApp()->showCriticalVehicleMessage(tr("NPNT Authorization not available, RPAS cannot be force armed!"));
+    }
 }
 
 bool Vehicle::flightModeSetAvailable()

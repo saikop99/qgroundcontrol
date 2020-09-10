@@ -22,6 +22,9 @@ import QGroundControl.Palette                   1.0
 import QGroundControl.Vehicle                   1.0
 import QGroundControl.FlightMap                 1.0
 
+//import for npnt
+import QGroundControl.FlightDisplay             1.0
+
 /// This provides the smarts behind the guided mode commands, minus the user interface. This way you can change UI
 /// without affecting the underlying functionality.
 Item {
@@ -54,6 +57,7 @@ Item {
     readonly property string vtolTransitionTitle:           qsTr("VTOL Transition")
     readonly property string roiTitle:                      qsTr("ROI")
     readonly property string actionListTitle:               qsTr("Action")
+    readonly property string npntArtefactUploadTitle:        qsTr("Upload Artefact")
 
     readonly property string armMessage:                        qsTr("Arm the vehicle.")
     readonly property string forceArmMessage:                   qsTr("WARNING: This will force arming of the vehicle bypassing any safety checks.")
@@ -75,6 +79,7 @@ Item {
     readonly property string vtolTransitionFwdMessage:          qsTr("Transition VTOL to fixed wing flight.")
     readonly property string vtolTransitionMRMessage:           qsTr("Transition VTOL to multi-rotor flight.")
     readonly property string roiMessage:                        qsTr("Make the specified location a Region Of Interest.")
+    readonly property string npntArtefactUploadMessage:         qsTr("Upload The DGCA Digital Sky Artefact to arm the RPAS")
 
     readonly property int actionRTL:                        1
     readonly property int actionLand:                       2
@@ -100,6 +105,7 @@ Item {
     readonly property int actionROI:                        22
     readonly property int actionActionList:                 23
     readonly property int actionForceArm:                   24
+    readonly property int actionNpntArtefactUpload:         25
 
     property var    _activeVehicle:             QGroundControl.multiVehicleManager.activeVehicle
     property bool   _useChecklist:              QGroundControl.settingsManager.appSettings.useChecklist.rawValue && QGroundControl.corePlugin.options.preFlightChecklistUrl.toString().length
@@ -278,6 +284,11 @@ Item {
         onDisarmVehicleRequest:             disarmVehicleRequest()
         onVtolTransitionToFwdFlightRequest: vtolTransitionToFwdFlightRequest()
         onVtolTransitionToMRFlightRequest:  vtolTransitionToMRFlightRequest()
+        onNpntArtefactUploadClicked      :  openNpntArtefactBrowser()
+    }
+
+    function openNpntArtefactBrowser() {
+
     }
 
     function armVehicleRequest() {
